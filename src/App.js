@@ -1,23 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import LineChartComponent from "./LineChartComponent";
+import NavBar from "./NavBar/index";
+import { Route, Routes, BrowserRouter } from "react-router-dom";
+import AreaChartComponent from "./AreaChartComponent";
+import BarChartComponent from "./BarChartComponent";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BrowserRouter>
+        <NavBar />
+        <Routes>
+          <Route path="/" exact element={<LineChartComponent />} />
+          <Route path="/area-chart" exact element={<AreaChartComponent />} />
+          <Route path="/bar-chart" exact element={<BarChartComponent />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
